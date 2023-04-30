@@ -17,21 +17,28 @@ const productsSlice = createSlice({
   name: 'products',
   initialState: {
     list: [],
-    // filtered: [],
+    filtered: [],
     // related: [],
     isLoading: false
   },
+  reducers: {
+    filterByPrice: (state, { payload }) => {
+      state.filtered = state.list.filter(({ price }) => price < payload);
+    },
+  },
   extraReducers: (builder) => {
-    builder.addCase(getProducts.pending, (state) => { 
+    builder.addCase(getProducts.pending, (state) => {
       state.isLoading = true
-    })
-    builder.addCase(getProducts.fulfilled, (state, {payload}) => { 
+    });
+    builder.addCase(getProducts.fulfilled, (state, { payload }) => {
       state.list = payload
-    })
-    builder.addCase(getProducts.rejected, (state) => { 
+    });
+    builder.addCase(getProducts.rejected, (state) => {
       state.isLoading = false
-    })
+    });
   }
 })
 
-export default productsSlice.reducer
+export const { filterByPrice } = productsSlice.actions;
+
+export default productsSlice.reducer;
