@@ -8,6 +8,7 @@ import AppRoutes from '../Routes/Routes'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Sidebar from '../Sidebar/Sidebar'
+import UserForm from "../User/UserForm";
 
 const App = () => {
     const dispatch = useDispatch();
@@ -15,11 +16,12 @@ const App = () => {
     useEffect(() => {
         dispatch(getCategories())
         dispatch(getProducts())
-    },[dispatch]);
+    }, [dispatch]);
 
     return (
         <div className='app'>
             <Header />
+            <UserForm />
             <div className="container">
                 <Sidebar />
                 <AppRoutes />
