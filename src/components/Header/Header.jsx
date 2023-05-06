@@ -62,7 +62,7 @@ const Header = () => {
             <input
               type="search"
               name='search'
-              placeholder='Search for anyting...'
+              placeholder='Search for anything...'
               autoComplete='off'
               onChange={handleSearch}
               value={searchValue} />
@@ -72,7 +72,7 @@ const Header = () => {
 
         </form>
         <div className={styles.account}>
-          <Link to={ROUTES.HOME} className={styles.favourites}>
+          <Link to={ROUTES.HOME} className={styles.favorites}>
             <svg className={styles['icon-fav']}>
               <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#heart`} />
             </svg>
