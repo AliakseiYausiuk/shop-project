@@ -12,7 +12,7 @@ import { ROUTES } from "../../utils/routes";
 const AppRoutes = () => {
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route index path="*" element={<Home />} />
             <Route path={ROUTES.PRODUCT} element={<SingleProduct />} />
             <Route path={ROUTES.PROFILE} element={<Profile />} />
             <Route path={ROUTES.CATEGORY} element={<SingleCategory />} />
